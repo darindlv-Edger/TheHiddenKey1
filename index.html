@@ -68,5 +68,25 @@
         <input type="text" id="answer" placeholder="TYPE YOUR FINDING" autocomplete="off">
     </div>
     <div class="footer">STRICTLY FOR THE PERSISTENT</div>
+    <script>
+    const input = document.getElementById('answer');
+    
+    input.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            // We convert to lowercase so "Darkness" and "darkness" both work
+            const userAnswer = input.value.toLowerCase().trim();
+            
+            if (userAnswer === "darkness") {
+                // This sends them to the next page
+                window.location.href = "phase2.html";
+            } else {
+                // A subtle "wrong" animation
+                input.style.borderColor = "red";
+                setTimeout(() => { input.style.borderColor = "#333"; }, 500);
+                input.value = "";
+            }
+        }
+    });
+</script>
 </body>
 </html>
