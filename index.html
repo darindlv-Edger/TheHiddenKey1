@@ -1,22 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>PHASE ONE: START</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE INFINITE HUNT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
     <style>
-        body { background-color: black; color: #00FF00; font-family: 'Courier New', Courier, monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .container { text-align: center; border: 1px solid #00FF00; padding: 40px; box-shadow: 0 0 15px #00FF00; }
-        h1 { font-size: 1.5rem; letter-spacing: 5px; }
-        p { font-size: 1rem; opacity: 0.7; }
-        input { background: transparent; border: none; border-bottom: 1px solid #00FF00; color: #00FF00; text-align: center; outline: none; font-size: 1.2rem; }
+        body { 
+            background-color: #0f0f0f; 
+            color: #ffffff; 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            overflow: hidden;
+        }
+        .main-container { 
+            text-align: center; 
+            max-width: 500px;
+            padding: 20px;
+        }
+        h1 { 
+            font-weight: 300; 
+            letter-spacing: 0.5rem; 
+            font-size: 1.2rem; 
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            color: #888;
+        }
+        .clue {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 50px;
+            font-weight: 500;
+        }
+        input { 
+            background: transparent; 
+            border: none; 
+            border-bottom: 1px solid #333; 
+            color: #fff; 
+            text-align: center; 
+            width: 100%;
+            padding: 10px 0;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            border-bottom: 1px solid #ffffff;
+        }
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.7rem;
+            color: #444;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>SYSTEM_INITIALIZED</h1>
-        <p>The hunt has begun. Find the key to proceed.</p>
-        <br>
-        <p><i>"I am seen in the beginning of eternity, the end of time and space..."</i></p>
-        <input type="text" placeholder="ENTER KEY">
+    <div class="main-container">
+        <h1>Foundation . 01</h1>
+        <div class="clue">"The more of me there is, the less you see."</div>
+        <input type="text" id="answer" placeholder="TYPE YOUR FINDING" autocomplete="off">
     </div>
+    <div class="footer">STRICTLY FOR THE PERSISTENT</div>
 </body>
 </html>
