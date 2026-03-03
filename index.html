@@ -3,90 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE INFINITE HUNT</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <title>THE HUNT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
+        /* THE CLEAN VIBE */
         body { 
-            background-color: #0f0f0f; 
-            color: #ffffff; 
+            background-color: #ffffff; 
+            color: #1a1a1a; 
             font-family: 'Inter', sans-serif; 
             margin: 0; 
             display: flex; 
+            flex-direction: column;
             justify-content: center; 
             align-items: center; 
             height: 100vh; 
-            overflow: hidden;
         }
-        .main-container { 
+        .wrapper { 
             text-align: center; 
-            max-width: 500px;
-            padding: 20px;
+            width: 100%;
+            max-width: 400px;
         }
         h1 { 
             font-weight: 300; 
-            letter-spacing: 0.5rem; 
-            font-size: 1.2rem; 
-            margin-bottom: 40px;
+            font-size: 0.75rem; 
+            letter-spacing: 0.3rem; 
+            color: #999; 
             text-transform: uppercase;
-            color: #888;
+            margin-bottom: 60px;
         }
-        .clue {
-            font-size: 1.5rem;
-            line-height: 1.6;
-            margin-bottom: 50px;
-            font-weight: 500;
+        .question {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+            color: #1a1a1a;
         }
         input { 
-            background: transparent; 
-            border: none; 
-            border-bottom: 1px solid #333; 
-            color: #fff; 
-            text-align: center; 
             width: 100%;
-            padding: 10px 0;
-            font-size: 1rem;
-            letter-spacing: 2px;
+            padding: 15px 0;
+            border: none;
+            border-bottom: 1px solid #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            text-align: center;
             outline: none;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.4s ease;
         }
         input:focus {
-            border-bottom: 1px solid #ffffff;
+            border-bottom: 1px solid #000000;
         }
-        .footer {
-            position: absolute;
-            bottom: 30px;
-            font-size: 0.7rem;
-            color: #444;
-            letter-spacing: 1px;
-        }
+        /* Error state */
+        .error { border-bottom: 1px solid #ff4d4d !important; }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <h1>Foundation . 01</h1>
-        <div class="clue">"The more of me there is, the less you see."</div>
-        <input type="text" id="answer" placeholder="TYPE YOUR FINDING" autocomplete="off">
+
+    <div class="wrapper">
+        <h1>Foundation / 01</h1>
+        <div class="question">The more of me there is, the less you see.</div>
+        <input type="text" id="hunt-input" placeholder="Your Answer" autocomplete="off">
     </div>
-    <div class="footer">STRICTLY FOR THE PERSISTENT</div>
+
     <script>
-    const input = document.getElementById('answer');
-    
-    input.addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            // We convert to lowercase so "Darkness" and "darkness" both work
-            const userAnswer = input.value.toLowerCase().trim();
-            
-            if (userAnswer === "darkness") {
-                // This sends them to the next page
-                window.location.href = "phase2.html";
-            } else {
-                // A subtle "wrong" animation
-                input.style.borderColor = "red";
-                setTimeout(() => { input.style.borderColor = "#333"; }, 500);
-                input.value = "";
+        const inputField = document.getElementById('hunt-input');
+
+        inputField.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const val = inputField.value.toLowerCase().trim();
+                
+                if (val === "darkness") {
+                    // This sends them to the second page
+                    window.location.href = "phase2.html";
+                } else {
+                    // Flash red if wrong
+                    inputField.classList.add('error');
+                    setTimeout(() => { 
+                        inputField.classList.remove('error');
+                        inputField.value = ""; 
+                    }, 500);
+                }
             }
-        }
-    });
-</script>
+        });
+    </script>
 </body>
 </html>
